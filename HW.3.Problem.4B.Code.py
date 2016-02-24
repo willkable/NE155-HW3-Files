@@ -1,7 +1,5 @@
 from numpy import *
 
-
-
 def CompSimp38(a, b, n):
     if n % 3 == 0:
         pass
@@ -9,7 +7,6 @@ def CompSimp38(a, b, n):
         return print("Need a 'n' divisible by 3")
 
     x = linspace(a, b, n)
-    print(x)
     y = 0
     fx = ones(len(x))
     h = (b - a) / n
@@ -21,11 +18,13 @@ def CompSimp38(a, b, n):
     for i in range(len(x)):
         if i == 0 or i == n - 1:
             y += fx[i]
+        elif i % 3 == 0:
+            y += 2 * fx[i]
         else:
             y += 3 * fx[i]
     y = (y * 3 * h / 8)
     return y
 
 
-print((CompSimp38(-3, 4, 6)))
+print((CompSimp38(3, 4, 300)))
 
